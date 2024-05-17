@@ -1,0 +1,312 @@
+%-------------------------
+% Resume in Latex
+% Author: Jake Gutierrez
+% Based off of: https://github.com/sb2nov/resume
+% License: MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+\setlength{\multicolsep}{-3.0pt}
+\setlength{\columnsep}{-1pt}
+\input{glyphtounicode}
+
+
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.19in}
+\addtolength{\topmargin}{-.7in}
+\addtolength{\textheight}{1.4in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large\bfseries
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\classesList}[4]{
+    \item\small{
+        {#1 #2 #3 #4 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textbf{\small #2} \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{1.001\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & \textbf{\small #2}\\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+\begin{center}
+\begin{tabular}{l@{\hskip 5cm}r}
+    {\Huge \scshape Ranjith Kumar D} & \raisebox{-0.1\height}\faPhone\ +1 913-963-8638 \\
+    \href{https://linkedin.com/in/ranjithh/}{\raisebox{-0.2\height}\faLinkedin\ \underline{linkedin.com/in/ranjithh}} & \href{mailto:ranjithreddy0702@gmail.com}{\raisebox{-0.2\height}\faEnvelope\ \underline{ranjithreddy0702@gmail.com}} \\
+    &  OverlandPark, Kansas\\
+\end{tabular}
+\end{center}
+
+
+%-----------PROJECTS-----------
+\section{Professional Summary:}
+    \vspace{-3pt}
+    %\resumeSubHeadingListStart
+     % \resumeProjectHeading
+\resumeItemListStart
+        \setlength{\itemsep}{0pt}\setlength{\parskip}{8pt}
+\resumeItem{\textbf{AWS Certified Solution Architect} with \textbf{5+ years} of extensive experience, I specialize in end-to-end data engineering. My expertise encompasses data ingestion, visualization, cleansing, transformations, validations/auditing, and feature engineering. I stand poised to serve as a comprehensive solution provider for all data-related requirements.}
+\resumeItem{Over \textbf{5 years of versatile experience} as a \textbf{Cloud Data Engineer}, leveraging a range of data frameworks for collection, management, transformation, and storage to derive meaningful business insights.}
+\resumeItem{Proficiency in using \textbf{Snowpark} and \textbf{SnowSQL}, harnessing their capabilities for large-scale data processing and optimizing data operations.}
+\resumeItem{In-depth knowledge and hands-on experience with \textbf{Hadoop} and \textbf{PySpark}, enhancing big data processing and analytics.}
+\resumeItem{Expertise in \textbf{AWS services} such as S3, Glue, Athena, Redshift, EMR, Lambda and Cloud Formation, strengthening cloud computing capabilities and solutions.}
+\resumeItem{Strong capabilities in \textbf{Python} with a focus on data processing and analytics, enabling data-driven decision making and strategy formulation.}
+\resumeItem{Significant experience in the \textbf{healthcare domain} and \textbf{consulting}, adapting to complex scenarios and offering strategic data solutions.}
+\resumeItem{Expertise in SQL and database technologies for robust data manipulation, querying and insightful data analysis.}
+\resumeItem{Proficient in leveraging AWS Cloud services such as S3, EMR, Lambda functions, \textbf{Redshift}, Athena, Glue, etc., to enhance data processing capabilities.}
+\resumeItem{Capable of employing AWS utilities like EMR, S3, and \textbf{CloudWatch} to effectively run and monitor Hadoop and Spark jobs on \textbf{Amazon Web Services (AWS)}.}
+\resumeItem{Solid knowledge in working with \textbf{Amazon EC2}, providing complete solutions for computing, query processing, and storage across a wide range of applications.}
+\resumeItem{Hands-on experience with \textbf{Databricks}, using its Unified Analytics Platform for big data processing and Machine Learning applications, improving scalability and efficiency of data processing tasks.}
+\resumeItem{Proficiency in using \textbf{Snowflake's} cloud-based data warehousing platform for effective data management and facilitating quick and efficient data querying.}
+\resumeItem{Significant experience in implementing and consuming \textbf{REST APIs} for facilitating communication between different software components, ensuring seamless data exchange.}
+\resumeItem{Proven experience with big data tools like \textbf{Hadoop}, \textbf{Hive}, \textbf{Spark}, and \textbf{Kafka}, and adept at processing large datasets and deriving valuable insights.}
+\resumeItem{Skilled in using \textbf{Apache NiFi} for effective data ingestion, and \textbf{Elasticsearch} for distributed, RESTful search and analytics.}
+\resumeItem{In-depth knowledge of utilizing \textbf{Apache Flink} for stream and batch data processing and \textbf{Apache Cassandra} for managing large amounts of data across commodity servers.}
+\resumeItem{Experienced with using \textbf{Google BigQuery} for interactive analysis of super-large datasets and \textbf{Amazon Redshift} for large scale data warehousing.}
+
+
+    
+\resumeItemListEnd
+          \vspace{13pt}
+
+\section{Relevant Technologies and Skills}
+%  \begin{itemize}[leftmargin=0.15in, label={}]
+%     \small{\item{
+%      \textbf{Languages}{:MYSQL, python , Java, Scala,Pyspark R } \\
+%      {\textbf{Key skills}}{: Tableau Desktop v2019.1, Tableau Server, Tableau online, Tableau Public, Tableau Reader, DAX, SSIS, Business
+% Intelligence Development Studio (BIDS), TFS, Azure Analysis services (AAS) and Power BI, SQL server reporting services (SSRS), SQL Server Analysis Services (SSAS), SQL server Integrating Services (SSIS),Power BI,Advanced Excel,R, SAS, SPSS, Basic Unity} \\
+     
+%  \end{itemize}
+
+ 
+ \begin{tabular}{ @{} >{\bfseries}l @{\hspace{6ex}} l }
+
+Programming Languages\ & Python, Scala, Pyspark, R   \\
+Big Data Frameworks\ & Apache Spark, Apache Hadoop \\
+Cloud Technologies\ & Amazon Web Services(AWS), Cloudera \\
+Data Orchestration\ & Apache Airflow, Talent, Control-M \\
+Databases\ & MYSQL, SQL Server, Cassandra, MongoDB, HBase \\
+Data-warehouse\ & Snowflake, IBM Db2 Warehouse, Amazon Redshift \\
+DevOps\ & Bash, Shell Scripting, Grovvy, Git, Jenkins, Jfrog \\
+Other skills\ & Tableau, Advanced Excel \\
+\end{tabular}
+
+ %\vspace{32pt}
+ 
+ \newpage
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+\resumeSubHeadingListStart
+\resumeSubheading
+      {\textbf{AWS Data Engineer}}{\textnormal{May 2022 – May 2023}}
+      {\textbf{Capital One}}{Overland Park (Remote)}
+      \resumeItemListStart
+              \setlength{\itemsep}{0pt}\setlength{\parskip}{8pt}
+        \resumeItem \textbf{Leveraged robust AWS services} including \textbf{S3}, \textbf{Glue}, \textbf{Athena}, \textbf{Redshift}, \textbf{EMR}, \textbf{Lambda}, and \textbf{Cloud Formation} to optimize and streamline cloud-based solutions, enhancing data management and operational efficiency.
+        \resumeItem Employed \textbf{Snowpark} and \textbf{SnowSQL} for efficient data handling and strategic decision-making.
+        \resumeItem Applied \textbf{Python} for manipulating, extracting, and reporting data, effectively feeding into analytics and model building processes.
+        \resumeItem Engaged in the \textbf{healthcare domain}, providing data modeling support and ready-to-use data for machine learning models.
+        \resumeItem As a \textbf{developer lead}, strategized and implemented scalable data solutions, managing multiple assignments with prioritization and effective decision making.
+        \resumeItem{Extended the UI using custom \textbf{Airflow plugins} to provide tailored functionality and leveraged Airflow’s rich user interface for efficient pipeline management, including task monitoring and quick troubleshooting.}
+        \resumeItem{Managed ETL processes with \textbf{Airflow} by creating, debugging, scheduling, and monitoring batch jobs.  Implemented data partitioning to optimize processing time and resource utilization.}
+        \resumeItem{Designed a resilient \textbf{AWS-based framework for streaming data} from producers/sources through \textbf{Apache Kafka} to specific cloud storage locations, like \textbf{Amazon S3}}.
+        \resumeItem{Integrated an in-house data validation tool for data quality assurance and set up an \textbf{Amazon SNS-based notification service triggering an AWS Lambda function} for data migration across S3 locations.}
+        \resumeItem{Implemented new data engineering tools and practices, leading to a \textbf{20\%} increase in overall team performance}
+        \resumeItem{Created, deployed, and ran applications with \textbf{Docker} by using containerization to provide an additional layer of abstraction and automation of operating-system-level virtualization.}
+        \resumeItem{Configured and managed AWS services like \textbf{S3, IAM, and Redshift} for storage, security, and data warehousing, respectively, to optimize resources and manage costs effectively..}
+        \resumeItem{Enabled salable and cost-efficient application development by using \textbf{AWS Lambda} to run code without provisioning or managing servers.}
+        \resumeItem{Assisted data science teams in data modeling tasks and provided clean, usable data to apply ML models, thereby driving data-driven decision-making processes.}
+        \resumeItem{Identified and recommended new technologies that resulted in an overall increase in system efficiency like using SubDag's in Airflow, local Airflow for testing and Debugging, and Running Pyspark.   }
+
+    \resumeItemListEnd
+\resumeSubHeadingListEnd
+
+  \vspace{3pt}        
+\resumeSubheading
+      {Lab Developer}{\textnormal{May 2021 -- Aug 2022}}
+      {University of Central Missouri}{Lee Summit, MO}
+      \resumeItemListStart
+              \setlength{\itemsep}{0pt}\setlength{\parskip}{8pt}
+        \resumeItem{Utilized \textbf{SQL} and \textbf{Tableau} for designing and maintaining database tables, views, and user-defined functions, which streamlined data operations and facilitated interactive data visualizations.}
+        \resumeItem{Exhibited expertise in creating intricate \textbf{SQL} queries and leveraging \textbf{PySpark} for efficient data manipulation, extraction, and reporting, contributing to informed strategic decision-making processes.}
+        \resumeItem{Proficient in \textbf{SQL} performance tuning and \textbf{Tableau} performance optimization to enhance database and visualization efficiency and responsiveness.}
+        \resumeItem{Managed the creation and maintenance of database objects while conducting thorough database analysis to ensure data consistency and integrity, which in turn supported precise data visualizations.}
+        \resumeItem{Developed intricate \textbf{SQL queries} and leveraged PySpark for efficient data manipulation, extraction, and reporting, which produced faster response times and improved user experience.}
+      \resumeItemListEnd
+      
+      
+ \vspace{3pt}      
+    \resumeSubheading
+      {HDFC Asset Management}{Mar 2019 -- Feb 2021}
+      {Data Engineer }{Hyderabad, India}
+      \resumeItemListStart
+              \setlength{\itemsep}{0pt}\setlength{\parskip}{8pt}
+            \resumeItem{Constructed ETL pipelines to enhance data availability and usability by migrating from traditional databases like \textbf{DB2} to cloud-based data warehouse \textbf{Snowflake}.}
+\resumeItem{Played a key role in architecting and deploying \textbf{on-premise Hadoop clusters}, and orchestrated their successful migration to the \textbf{Cloudera} platform, enhancing data processing capabilities.}
+
+\resumeItem{Designed, built, and managed \textbf{data pipelines}, utilizing tools such as \textbf{Sqoop}, \textbf{Flume}, and \textbf{Kafka}, ensuring efficient data ingestion and flow from a variety of sources to Hadoop clusters and then to Cloudera.}
+
+\resumeItem{Implemented \textbf{data transformation} processes using \textbf{Hive} and \textbf{Pig}, leveraging \textbf{Hadoop MapReduce}, to prepare data for analysis and reporting in the Cloudera ecosystem.}
+
+\resumeItem{Optimized the performance of \textbf{Hadoop clusters} by tuning \textbf{HDFS}, \textbf{YARN/MapReduce}, and \textbf{Hive} parameters, maintaining the system's health and efficiency.}
+
+\resumeItem{Ensured secure data access by implementing \textbf{Sentry} for role-based authorization in Cloudera, improving data governance and privacy.}
+
+\resumeItem{Worked closely with the \textbf{Data Science} team to build machine learning models on Cloudera using \textbf{Spark MLlib}, facilitating data-driven decision making.}
+        \resumeItemListEnd
+ \vspace{3pt} 
+    \resumeSubheading
+        {Research Analyst Intern}{\textnormal{Apr 2018 -- Jul 2018}}
+        {Karvy Fintech}{Hyderabad, India}
+        \resumeItemListStart
+        \setlength{\itemsep}{0pt}\setlength{\parskip}{8pt}
+            \resumeItem{Conducted extensive financial research across diverse sectors, including technology, healthcare, and consumer goods, to support investment decisions.}
+            \resumeItem{Developed comprehensive sector reports integrating qualitative and quantitative data, presenting key insights to the research team and clients.}
+            \resumeItem{Utilized advanced \textbf{Excel} functionalities, including pivot tables and v-lookup,to analyze large data sets, aiding in the identification of investment opportunities.}
+            \resumeItem{Participated in the preparation and presentation of financial models, utilizing \textbf{Python} and \textbf{R} for data analysis and visualization, and contributing to data-driven investment strategies.}
+            
+    
+        \resumeItemListEnd
+  \vspace{3pt}    
+  \resumeSubHeadingListEnd
+
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+              {Master's of Computer Science}{}
+      {University of Central Missouri}{Warrensburg, MO}
+ \vspace{-15pt} 
+  \resumeSubHeadingListEnd
+   \resumeSubHeadingListStart
+    \resumeSubheading
+       {Master's of Business Administration - Finance}{}
+      {ICFAI Business School}{Hyderabad, India}
+  \resumeSubHeadingListEnd
+%
+
+ \vspace{-3pt} 
+
+%-----------CERTIFICATIONS-----------
+\section{Certifications}
+\begin{itemize}
+    \setlength{\itemsep}{0pt}\setlength{\parskip}{2pt}
+    \item \href{https://www.credly.com/badges/45cf8bee-0d91-495d-860f-ab4ef75ceabc/linked_in_profile}{AWS Certified Solutions Architect – Associate}
+    \item \href{https://www.coursera.org/account/accomplishments/certificate/GJP8QRA926YB}{Python for Data Science, AI \& Development}
+    \item Data Analysis Using Pyspark
+    \item Deep Learning, by Andrew Ng
+    \item IBM Data Engineering
+\end{itemize}
+
+  %\vspace{2pt} 
+%-----------INVOLVEMENT---------------
+\section{Extracurriculars}
+    \resumeSubHeadingListStart
+        \resumeSubheading
+        {Vice president }{\textnormal{University of Central Missouri}}
+                {International Student Organization(UCMO)}{Jun 21 -- Aug 22}
+          \vspace{-3pt}
+            \resumeItemListStart
+                \resumeItem{Provided guidance to clubs needing assistance with membership growth and leadership development.}
+                \resumeItem{Marketed various club functions and events, including inter-club meetings, installation of club officers, induction of new members, and ceremonies honoring Key Award recipients.}
+\resumeItemListEnd   
+    %\vspace{3pt}
+        \resumeSubheading
+                {Technical Head }{\textnormal{ICFAI Business School}}
+        {Dot Club}{Jun 18 -- May 19}
+            \resumeItemListStart
+                \resumeItem{Led a team of student members, organizing and coordinating workshops, Hackathons, and technical events to promote skill development and foster a collaborative learning environment within the club.}
+                \resumeItem{Developed and managed the club's technical resources, including software, hardware, and online platforms, ensuring their effective utilization for club activities and projects.}
+    \resumeSubHeadingListEnd
+    \resumeSubHeadingListEnd
+
+\end{document}
