@@ -221,11 +221,68 @@ form.msg textarea{min-height:120px;resize:vertical}
 footer{border-top:1px solid var(--line);margin-top:90px;padding:34px 0 44px;background:var(--bg2)}
 .foot{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between}
 .foot p{color:var(--muted);font-size:.87rem;margin:0}
+/* ---------- EVOLVING BACKGROUND (ember → steel → neon → deep space) ---------- */
+#evoBg{position:fixed;inset:0;z-index:-1;pointer-events:none;background:#170b03}
+.marquee{background:color-mix(in srgb, var(--bg2) 78%, transparent)}
+footer{background:color-mix(in srgb, var(--bg2) 82%, transparent)}
+#eraHud{position:fixed;left:16px;bottom:16px;z-index:70;display:flex;align-items:center;gap:11px;background:var(--nav-bg);backdrop-filter:blur(12px);border:1px solid var(--line-bright);border-radius:10px;padding:9px 14px 9px 11px;pointer-events:none;max-width:min(330px,calc(100vw - 32px));box-shadow:var(--shadow)}
+#eraHud .era-dot{width:11px;height:11px;border-radius:50%;background:#f97316;box-shadow:0 0 12px #f97316;flex:none;transition:background .3s,box-shadow .3s}
+#eraHud b{display:block;font-family:"IBM Plex Mono",monospace;font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;line-height:1.3}
+#eraHud span{display:block;font-family:"IBM Plex Mono",monospace;font-size:.7rem;color:var(--muted);letter-spacing:.06em}
+#eraHud .era-bar{width:64px;height:4px;border-radius:99px;background:var(--line);overflow:hidden;flex:none}
+#eraHud .era-bar i{display:block;height:100%;width:0;background:var(--cyan);border-radius:99px}
+@media (max-width:560px){#eraHud .era-bar{display:none}}
+/* ---------- MANIFESTO ---------- */
+.manifesto-line{font-size:clamp(1.7rem,4.6vw,3rem);line-height:1.3;max-width:900px;margin:14px 0 6px}
+.manifesto-line span{opacity:.14;transition:opacity .5s ease}
+.manifesto-line.in span{opacity:1}
+.manifesto-line em{font-style:normal;color:var(--amber)}
+.creed-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:26px}
+@media (max-width:820px){.creed-grid{grid-template-columns:1fr}}
+.creed{border:1px solid var(--line);background:color-mix(in srgb, var(--panel) 88%, transparent);border-radius:10px;padding:20px 22px}
+.creed .no{font-family:"IBM Plex Mono",monospace;color:var(--cyan);font-size:.78rem;letter-spacing:.14em}
+.creed p{font-family:"Michroma",sans-serif;font-size:.98rem;line-height:1.55;margin:8px 0 0}
+.creed small{display:block;margin-top:8px;color:var(--muted);font-size:.86rem;line-height:1.5}
+/* ---------- JOURNEY CARTOON ---------- */
+.stage{position:relative;border:1px solid var(--line-bright);border-radius:14px;overflow:hidden;background:#070a12;box-shadow:var(--shadow)}
+.stage svg{display:block;width:100%;height:auto}
+.stage .lbl{font-family:"IBM Plex Mono",monospace;letter-spacing:.08em}
+.phase-row{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;margin-top:16px}
+.phase-dots{display:flex;gap:8px;align-items:center}
+.phase-dots i{width:10px;height:10px;border-radius:50%;background:var(--line-bright);transition:background .3s,box-shadow .3s}
+.phase-dots i.on{background:var(--cyan);box-shadow:0 0 10px var(--cyan)}
+#phaseCap b{font-family:"Michroma",sans-serif;font-weight:400;font-size:1rem;display:block}
+#phaseCap span{color:var(--muted);font-size:.92rem}
+.bob{animation:bob 0.8s ease-in-out infinite alternate}
+@keyframes bob{from{transform:translateY(0)}to{transform:translateY(-4px)}}
+.leg{transform-box:fill-box;transform-origin:50% 0;animation:swing .8s ease-in-out infinite alternate}
+.leg.b{animation-delay:-.4s}
+@keyframes swing{from{transform:rotate(13deg)}to{transform:rotate(-13deg)}}
+.wave{transform-box:fill-box;transform-origin:50% 8%;animation:wave 1.6s ease-in-out infinite alternate}
+@keyframes wave{from{transform:rotate(-8deg)}to{transform:rotate(16deg)}}
+.flame{transform-box:fill-box;transform-origin:50% 100%;animation:flick .5s ease-in-out infinite alternate}
+@keyframes flick{from{transform:scale(1)}to{transform:scale(1.12,1.22)}}
+.blinkL{animation:blinkL 1.8s steps(1) infinite}
+@keyframes blinkL{0%,60%{opacity:1}61%,100%{opacity:.15}}
+.spinSlow{transform-box:fill-box;transform-origin:50% 50%;animation:spinS 14s linear infinite}
+@keyframes spinS{to{transform:rotate(360deg)}}
+.dashmove{animation:dashm 1s linear infinite}
+@keyframes dashm{to{transform:translateX(-48px)}}
+.floaty{animation:floaty 2.4s ease-in-out infinite alternate}
+@keyframes floaty{from{transform:translateY(0)}to{transform:translateY(-7px)}}
+.corePulse{animation:coreP 1.6s ease-in-out infinite alternate}
+@keyframes coreP{from{opacity:.55}to{opacity:1}}
 .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
 .reveal.in{opacity:1;transform:none}
 </style>
 </head>
 <body>
+<div id="evoBg" aria-hidden="true"></div>
+<div id="eraHud" aria-hidden="true">
+  <span class="era-dot" id="eraDot"></span>
+  <div><b id="eraName">The Spark · Fire</b><span id="eraYear">800,000 BCE</span></div>
+  <div class="era-bar"><i id="eraBarFill"></i></div>
+</div>
 <header class="site">
   <div class="nav">
     <a class="brand" href="#home" aria-label="Ranjith Kumar D — home">
@@ -235,6 +292,7 @@ footer{border-top:1px solid var(--line);margin-top:90px;padding:34px 0 44px;back
     <button id="menuBtn" aria-label="Open menu" aria-expanded="false">☰</button>
     <nav class="links" id="navLinks" aria-label="Main">
       <a href="#home" class="navlink">Home</a>
+      <a href="#journey" class="navlink">Journey</a>
       <a href="#about" class="navlink">About</a>
       <a href="#experience" class="navlink">Experience</a>
       <a href="#skills" class="navlink">Skills</a>
@@ -281,6 +339,166 @@ footer{border-top:1px solid var(--line);margin-top:90px;padding:34px 0 44px;back
   <div class="marquee" aria-hidden="true"><div class="marquee-track" id="marqueeTrack">
     <span>KAIZEN <i>改善</i></span><span>AGENTIC AI</span><span>DISCIPLINE <i>修練</i></span><span>RAG PIPELINES</span><span>CRAFTSMANSHIP <i>職人</i></span><span>CLINICAL NLP</span><span>ADVENTURE</span><span>DATA PLATFORMS</span>
   </div></div>
+</section>
+
+<!-- ================= MANIFESTO ================= -->
+<section id="manifesto" style="padding-top:56px">
+  <div class="wrap">
+    <span class="tag">The manifesto · Why this site scrolls through time</span>
+    <h2 class="manifesto-line" id="mWords"><span style="transition-delay:.0s">The</span> <span style="transition-delay:.07s">day</span> <span style="transition-delay:.14s">we</span> <span style="transition-delay:.21s">stop</span> <span style="transition-delay:.28s"><em>innovating,</em></span> <span style="transition-delay:.42s">we</span> <span style="transition-delay:.49s">stop</span> <span style="transition-delay:.56s"><em>evolving.</em></span></h2>
+    <p class="sec-sub">Fire was our first technology. AI won't be our last. Everything below rides one timeline — from a caveman's first spark to space stations, Mars rovers and beyond the galaxy — because that's the arc my career is on too. Watch the background of this page as you scroll: ember, steel, neon, deep space.</p>
+    <div class="creed-grid">
+      <div class="creed reveal"><span class="no">CREED · 01</span><p>Don't ride the tail of change. Drive the engine.</p><small>Adapt or go extinct — the caveman's rule still applies. Be at the head of the train, not dragged behind it.</small></div>
+      <div class="creed reveal"><span class="no">CREED · 02</span><p>AI may out-think us. Humans decide what thinking is for.</p><small>Super-intelligent tools, used the right way, with human judgement on the loop — that's how you get the most out of them.</small></div>
+      <div class="creed reveal"><span class="no">CREED · 03</span><p>Build the future. Don't burn the planet to do it.</p><small>Power without responsibility burns. Innovation should heal — progress that costs the Earth isn't progress.</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= JOURNEY CARTOON ================= -->
+<section id="journey">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-index">✦ / THE JOURNEY</span><h2>From fire to cyborg</h2><span class="jp-big">進化</span></div>
+    <p class="sec-sub">My cartoon, in motion: me and my robots, walking close together through every age of innovation — and merging into one cyborg team by the end. Keep scrolling (or press play) to walk with us.</p>
+    <div class="stage" id="stage">
+      <svg viewBox="0 0 960 380" role="img" aria-label="Cartoon animation of Ranjith walking closely together with two robots through the ages of innovation, gradually becoming a cyborg">
+        <!-- era backdrops -->
+        <rect id="bgd0" x="0" y="0" width="960" height="380" fill="#221004"/>
+        <rect id="bgd1" x="0" y="0" width="960" height="380" fill="#14171c" opacity="0"/>
+        <rect id="bgd2" x="0" y="0" width="960" height="380" fill="#04101e" opacity="0"/>
+        <rect id="bgd3" x="0" y="0" width="960" height="380" fill="#02020c" opacity="0"/>
+        <!-- scenery: cave + fire -->
+        <g id="sc0">
+          <path d="M0,322 L0,120 Q90,40 190,110 L235,322 Z" fill="#120802"/>
+          <path d="M0,322 L0,170 Q70,110 140,160 L175,322 Z" fill="#1d0d03"/>
+          <g>
+            <rect x="86" y="306" width="34" height="7" rx="3" fill="#6b4423" transform="rotate(-8 103 309)"/>
+            <rect x="86" y="306" width="34" height="7" rx="3" fill="#7d5229" transform="rotate(9 103 309)"/>
+            <path class="flame" d="M103,306 Q88,282 99,262 Q104,278 110,266 Q118,284 108,306 Z" fill="#f97316"/>
+            <path class="flame" d="M103,306 Q96,290 103,278 Q110,292 106,306 Z" fill="#fbbf24"/>
+          </g>
+          <text class="lbl" x="60" y="356" fill="#b97c4a" font-size="11">THE SPARK</text>
+        </g>
+        <!-- scenery: factory -->
+        <g id="sc1" opacity="0">
+          <rect x="330" y="212" width="150" height="110" fill="#23272e"/>
+          <rect x="352" y="150" width="20" height="70" fill="#2b3038"/>
+          <rect x="392" y="138" width="20" height="82" fill="#2b3038"/>
+          <circle cx="362" cy="128" r="11" fill="#9aa5b1" opacity=".5"/>
+          <circle cx="402" cy="112" r="14" fill="#9aa5b1" opacity=".4"/>
+          <circle cx="372" cy="102" r="8" fill="#9aa5b1" opacity=".35"/>
+          <g class="spinSlow">
+            <circle cx="520" cy="238" r="30" fill="none" stroke="#8a97a5" stroke-width="7" stroke-dasharray="12 8"/>
+            <circle cx="520" cy="238" r="9" fill="#8a97a5"/>
+          </g>
+          <rect x="346" y="238" width="16" height="16" fill="#f5b544" opacity=".75"/><rect x="376" y="238" width="16" height="16" fill="#f5b544" opacity=".5"/><rect x="406" y="238" width="16" height="16" fill="#f5b544" opacity=".65"/>
+          <text class="lbl" x="345" y="356" fill="#8a97a5" font-size="11">STEAM &amp; STEEL</text>
+        </g>
+        <!-- scenery: neon city -->
+        <g id="sc2" opacity="0">
+          <rect x="600" y="180" width="52" height="142" fill="#0a1a2e"/>
+          <rect x="662" y="140" width="62" height="182" fill="#081426"/>
+          <rect x="734" y="196" width="44" height="126" fill="#0a1a2e"/>
+          <line x1="693" y1="140" x2="693" y2="106" stroke="#22d3ee" stroke-width="2"/><circle cx="693" cy="102" r="4" fill="#e879c6"/>
+          <g fill="#22d3ee"><rect x="610" y="196" width="9" height="12"/><rect x="628" y="196" width="9" height="12" opacity=".5"/><rect x="610" y="222" width="9" height="12" opacity=".6"/><rect x="672" y="158" width="10" height="13"/><rect x="692" y="158" width="10" height="13" opacity=".55"/><rect x="672" y="186" width="10" height="13" opacity=".7"/><rect x="744" y="212" width="9" height="12" opacity=".6"/></g>
+          <g fill="#e879c6"><rect x="628" y="222" width="9" height="12"/><rect x="692" y="186" width="10" height="13"/><rect x="744" y="238" width="9" height="12"/></g>
+          <text class="lbl" x="618" y="356" fill="#38bdf8" font-size="11">ROBOTS &amp; AI</text>
+        </g>
+        <!-- scenery: deep space -->
+        <g id="sc3" opacity="0">
+          <g fill="#eaf2ff"><circle cx="820" cy="52" r="2"/><circle cx="872" cy="88" r="1.6"/><circle cx="782" cy="96" r="1.4"/><circle cx="910" cy="42" r="2.2"/><circle cx="846" cy="140" r="1.3"/><circle cx="930" cy="120" r="1.5"/><circle cx="795" cy="160" r="1.2"/><circle cx="700" cy="60" r="1.4"/><circle cx="740" cy="34" r="1.8"/></g>
+          <circle cx="872" cy="212" r="40" fill="#31456e"/>
+          <circle cx="858" cy="198" r="9" fill="#263757"/><circle cx="886" cy="226" r="6" fill="#263757"/>
+          <ellipse cx="872" cy="212" rx="62" ry="15" fill="none" stroke="#7dd3fc" stroke-width="3" opacity=".7" transform="rotate(-14 872 212)"/>
+          <g class="floaty">
+            <path d="M742,96 q14,-20 26,0 l-4,22 q-9,6 -18,0 Z" fill="#dbe7f5"/>
+            <circle cx="755" cy="94" r="5" fill="#22d3ee"/>
+            <path class="flame" d="M748,120 q7,16 14,0 q-2,10 -7,14 q-5,-4 -7,-14 Z" fill="#f97316"/>
+          </g>
+          <text class="lbl" x="800" y="356" fill="#a5b4fc" font-size="11">DEEP SPACE</text>
+        </g>
+        <!-- ground -->
+        <line x1="0" y1="322" x2="960" y2="322" stroke="#5b4a38" stroke-width="2" opacity=".55"/>
+        <g class="dashmove" stroke="#8a97a5" stroke-width="3" opacity=".35">
+          <line x1="16" y1="338" x2="40" y2="338"/><line x1="64" y1="338" x2="88" y2="338"/><line x1="112" y1="338" x2="136" y2="338"/><line x1="160" y1="338" x2="184" y2="338"/><line x1="208" y1="338" x2="232" y2="338"/><line x1="256" y1="338" x2="280" y2="338"/><line x1="304" y1="338" x2="328" y2="338"/><line x1="352" y1="338" x2="376" y2="338"/><line x1="400" y1="338" x2="424" y2="338"/><line x1="448" y1="338" x2="472" y2="338"/><line x1="496" y1="338" x2="520" y2="338"/><line x1="544" y1="338" x2="568" y2="338"/><line x1="592" y1="338" x2="616" y2="338"/><line x1="640" y1="338" x2="664" y2="338"/><line x1="688" y1="338" x2="712" y2="338"/><line x1="736" y1="338" x2="760" y2="338"/><line x1="784" y1="338" x2="808" y2="338"/><line x1="832" y1="338" x2="856" y2="338"/><line x1="880" y1="338" x2="904" y2="338"/><line x1="928" y1="338" x2="952" y2="338"/><line x1="976" y1="338" x2="1000" y2="338"/>
+        </g>
+        <!-- ======= WALKERS: Ranjith + robots, close together ======= -->
+        <g id="walkers">
+          <g class="bob">
+            <!-- tall robot (back) -->
+            <g>
+              <g class="leg b"><rect x="212" y="262" width="13" height="48" rx="5" fill="#7e93a8"/><rect x="206" y="306" width="24" height="9" rx="4" fill="#5d7186"/></g>
+              <g class="leg"><rect x="240" y="262" width="13" height="48" rx="5" fill="#8fa5ba"/><rect x="234" y="306" width="24" height="9" rx="4" fill="#5d7186"/></g>
+              <g class="wave"><rect x="188" y="176" width="12" height="52" rx="6" fill="#8fa5ba"/><circle cx="194" cy="232" r="8" fill="#b8c7d9"/></g>
+              <rect x="258" y="178" width="12" height="50" rx="6" fill="#7e93a8"/><circle cx="264" cy="232" r="8" fill="#b8c7d9"/>
+              <rect x="200" y="168" width="66" height="98" rx="14" fill="#aebfd2"/>
+              <rect x="212" y="184" width="42" height="34" rx="6" fill="#0e2233"/>
+              <circle class="corePulse" cx="233" cy="201" r="9" fill="#f5b544"/>
+              <rect x="214" y="230" width="38" height="6" rx="3" fill="#7e93a8"/>
+              <rect x="204" y="112" width="58" height="48" rx="12" fill="#c3d2e2"/>
+              <rect x="212" y="122" width="42" height="26" rx="6" fill="#0e2233"/>
+              <circle cx="224" cy="135" r="4.5" fill="#22d3ee"/><circle cx="242" cy="135" r="4.5" fill="#22d3ee"/>
+              <line x1="233" y1="112" x2="233" y2="88" stroke="#8fa5ba" stroke-width="3"/>
+              <circle class="blinkL" cx="233" cy="84" r="5" fill="#e879c6"/>
+              <text class="lbl" x="233" y="66" text-anchor="middle" fill="#c3d2e2" font-size="11">UNIT-7</text>
+            </g>
+            <!-- Ranjith (middle) -->
+            <g>
+              <g class="leg"><rect x="118" y="238" width="13" height="62" rx="5" fill="#2e3d55"/><rect x="112" y="296" width="25" height="10" rx="4" fill="#e8e8e8"/></g>
+              <g class="leg b"><rect x="140" y="238" width="13" height="62" rx="5" fill="#3a4d6b"/><rect x="134" y="296" width="25" height="10" rx="4" fill="#ffffff"/></g>
+              <g class="leg b"><rect x="100" y="182" width="12" height="50" rx="6" fill="#c2571f"/><circle cx="106" cy="236" r="7.5" fill="#a06844"/></g>
+              <rect x="102" y="170" width="54" height="74" rx="12" fill="#e2703a"/>
+              <line x1="129" y1="172" x2="129" y2="242" stroke="#b34f1d" stroke-width="3"/>
+              <g id="cybCircuits" opacity="0">
+                <path d="M110,196 h14 v12 h10" fill="none" stroke="#22d3ee" stroke-width="2"/>
+                <path d="M148,214 h-12 v10" fill="none" stroke="#22d3ee" stroke-width="2"/>
+                <circle cx="110" cy="196" r="2.6" fill="#22d3ee"/><circle cx="136" cy="224" r="2.6" fill="#22d3ee"/>
+              </g>
+              <g id="cybCore" opacity="0"><circle cx="129" cy="206" r="11" fill="none" stroke="#22d3ee" stroke-width="2"/><circle class="corePulse" cx="129" cy="206" r="6.5" fill="#22d3ee"/></g>
+              <g id="normArmR" class="leg"><rect x="152" y="182" width="12" height="50" rx="6" fill="#c2571f"/><circle cx="158" cy="236" r="7.5" fill="#a06844"/></g>
+              <g id="cybArm" opacity="0">
+                <rect x="152" y="182" width="13" height="26" rx="6" fill="#9fb4c8"/>
+                <circle cx="158" cy="212" r="6" fill="#5d7186"/>
+                <rect x="152" y="216" width="13" height="24" rx="6" fill="#b8c7d9"/>
+                <path d="M153,242 h12 M153,248 h12" stroke="#5d7186" stroke-width="3.4" stroke-linecap="round"/>
+                <circle cx="158" cy="196" r="3" fill="#22d3ee"/>
+              </g>
+              <circle cx="129" cy="140" r="27" fill="#a06844"/>
+              <path d="M102,138 a27,27 0 0 1 54,0 l0,-6 a27,20 0 0 0 -54,0 Z" fill="#17130f"/>
+              <circle cx="119" cy="140" r="3" fill="#17130f"/><circle cx="139" cy="140" r="3" fill="#17130f"/>
+              <path d="M120,152 q9,7 18,0" fill="none" stroke="#17130f" stroke-width="2.4" stroke-linecap="round"/>
+              <g id="cybPlate" opacity="0">
+                <path d="M129,113 a27,27 0 0 1 27,27 a27,27 0 0 1 -27,27 Z" fill="#9fb4c8"/>
+                <path d="M131,122 v34 M138,118 v10 M138,146 v12" stroke="#22d3ee" stroke-width="1.8"/>
+                <circle class="corePulse" cx="140" cy="140" r="4.6" fill="#22d3ee"/>
+                <line x1="146" y1="118" x2="152" y2="104" stroke="#9fb4c8" stroke-width="2.4"/><circle class="blinkL" cx="153" cy="101" r="3" fill="#22d3ee"/>
+              </g>
+              <text class="lbl" x="129" y="94" text-anchor="middle" fill="#ffd9b0" font-size="11">RANJITH</text>
+            </g>
+            <!-- small hover bot (front) -->
+            <g class="floaty">
+              <ellipse cx="316" cy="308" rx="26" ry="6" fill="#22d3ee" opacity=".28"/>
+              <rect x="288" y="248" width="56" height="44" rx="16" fill="#c3d2e2"/>
+              <rect x="298" y="260" width="36" height="20" rx="6" fill="#0e2233"/>
+              <circle class="corePulse" cx="316" cy="270" r="6" fill="#e879c6"/>
+              <line x1="316" y1="248" x2="316" y2="230" stroke="#8fa5ba" stroke-width="3"/>
+              <circle class="blinkL" cx="316" cy="226" r="4.5" fill="#22d3ee"/>
+              <rect x="282" y="262" width="8" height="20" rx="4" fill="#8fa5ba"/>
+              <rect x="342" y="262" width="8" height="20" rx="4" fill="#8fa5ba"/>
+              <text class="lbl" x="316" y="212" text-anchor="middle" fill="#c3d2e2" font-size="11">PIP</text>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </div>
+    <div class="phase-row">
+      <div id="phaseCap" aria-live="polite"><b id="phaseTitle">Phase 1 · The Spark</b><span id="phaseText">It starts with fire — one curious human learning to use a tool for the first time.</span></div>
+      <div style="display:flex;gap:14px;align-items:center">
+        <div class="phase-dots" aria-hidden="true"><i id="pd0" class="on"></i><i id="pd1"></i><i id="pd2"></i><i id="pd3"></i></div>
+        <button class="btn btn-primary btn-sm" id="playJourney" type="button">▶ Play the journey</button>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- ================= ABOUT ================= -->
@@ -663,7 +881,7 @@ footer{border-top:1px solid var(--line);margin-top:90px;padding:34px 0 44px;back
       }
     });
   },{rootMargin:'-40% 0px -55% 0px'});
-  ['home','about','experience','skills','projects','blog','resume','contact'].forEach(function(id){ var s=document.getElementById(id); if(s) spy.observe(s); });
+  ['home','journey','about','experience','skills','projects','blog','resume','contact'].forEach(function(id){ var s=document.getElementById(id); if(s) spy.observe(s); });
 
   /* experience accordion */
   document.querySelectorAll('.exp-head').forEach(function(h){
@@ -726,6 +944,119 @@ footer{border-top:1px solid var(--line);margin-top:90px;padding:34px 0 44px;back
     a.href='mailto:ranjithreddydugga@gmail.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(text);
     document.body.appendChild(a); a.click(); document.body.removeChild(a);
   });
+
+  /* ============ EVOLVING BACKGROUND: ember → steel → neon → deep space ============ */
+  function hx(h){ return [parseInt(h.slice(1,3),16),parseInt(h.slice(3,5),16),parseInt(h.slice(5,7),16)]; }
+  function lp(a,b,f){ return a+(b-a)*f; }
+  function mixC(c1,c2,f){ var A=hx(c1),B=hx(c2); return 'rgb('+Math.round(lp(A[0],B[0],f))+','+Math.round(lp(A[1],B[1],f))+','+Math.round(lp(A[2],B[2],f))+')'; }
+  function mixG(g1,g2,f){ return 'rgba('+Math.round(lp(g1[0],g2[0],f))+','+Math.round(lp(g1[1],g2[1],f))+','+Math.round(lp(g1[2],g2[2],f))+','+lp(g1[3],g2[3],f).toFixed(3)+')'; }
+  var stopsDark=[
+    {c1:'#170b03',c2:'#2e1405',g:[255,122,26,.34],dot:'#f97316'},
+    {c1:'#0e1013',c2:'#23272e',g:[148,163,184,.26],dot:'#94a3b8'},
+    {c1:'#04070f',c2:'#0a1830',g:[34,211,238,.30],dot:'#22d3ee'},
+    {c1:'#01020a',c2:'#0d0724',g:[99,102,241,.34],dot:'#818cf8'}
+  ];
+  var stopsLight=[
+    {c1:'#f6e2c8',c2:'#f0d2a8',g:[234,88,12,.25],dot:'#ea580c'},
+    {c1:'#e2e5e9',c2:'#c7ccd4',g:[100,116,139,.22],dot:'#64748b'},
+    {c1:'#dff3f8',c2:'#cde8f6',g:[2,132,199,.22],dot:'#0284c7'},
+    {c1:'#e3e5f6',c2:'#cfd4ef',g:[79,70,229,.20],dot:'#4f46e5'}
+  ];
+  var eraNames=['The Spark · Fire','Steam & Steel','Robots & AI','Deep Space · Cyborg'];
+  var eraYears=[-800000,1769,2026,2400];
+  function fmtYear(y){
+    if(y<0) return Math.abs(Math.round(y/100)*100).toLocaleString('en-US')+' BCE';
+    if(y>2100) return 'Beyond · '+Math.round(y);
+    return Math.round(y)+' CE';
+  }
+  var evoBg=document.getElementById('evoBg'), eraName=document.getElementById('eraName'),
+      eraYear=document.getElementById('eraYear'), eraDot=document.getElementById('eraDot'),
+      eraFill=document.getElementById('eraBarFill');
+  var lightMQ=window.matchMedia('(prefers-color-scheme: light)');
+  function renderEvo(){
+    var max=document.documentElement.scrollHeight-window.innerHeight;
+    var p=max>0?Math.min(Math.max(window.scrollY/max,0),1):0;
+    var stops=lightMQ.matches?stopsLight:stopsDark;
+    var q=p*3, i=Math.min(Math.floor(q),2), f=q-i;
+    var A=stops[i], B=stops[i+1];
+    evoBg.style.background='radial-gradient(1100px 640px at 85% -10%, '+mixG(A.g,B.g,f)+', transparent 62%), linear-gradient(180deg, '+mixC(A.c1,B.c1,f)+' 0%, '+mixC(A.c2,B.c2,f)+' 100%)';
+    var idx=Math.round(q);
+    eraName.textContent=eraNames[idx];
+    eraYear.textContent=fmtYear(lp(eraYears[i],eraYears[i+1],f));
+    eraDot.style.background=A.dot; eraDot.style.boxShadow='0 0 12px '+A.dot;
+    eraFill.style.width=(p*100)+'%';
+  }
+
+  /* ============ MANIFESTO word reveal ============ */
+  var mObs=new IntersectionObserver(function(en){ if(en[0].isIntersecting){ document.getElementById('mWords').classList.add('in'); mObs.disconnect(); } },{threshold:.35});
+  mObs.observe(document.getElementById('mWords'));
+
+  /* ============ JOURNEY CARTOON: scroll-scrubbed walk + cyborg merge ============ */
+  var jSec=document.getElementById('journey'), walkers=document.getElementById('walkers');
+  var bgd=[0,1,2,3].map(function(n){ return document.getElementById('bgd'+n); });
+  var scn=[0,1,2,3].map(function(n){ return document.getElementById('sc'+n); });
+  var dots=[0,1,2,3].map(function(n){ return document.getElementById('pd'+n); });
+  var cybArm=document.getElementById('cybArm'), normArmR=document.getElementById('normArmR'),
+      cybPlate=document.getElementById('cybPlate'), cybCore=document.getElementById('cybCore'),
+      cybCirc=document.getElementById('cybCircuits');
+  var phTitle=document.getElementById('phaseTitle'), phText=document.getElementById('phaseText');
+  var phases=[
+    ['Phase 1 · The Spark','It starts with fire — one curious human learning to use a tool for the first time.'],
+    ['Phase 2 · Steam & Steel','Machines multiply our strength. We learn to build bigger, faster, further.'],
+    ['Phase 3 · Robots & AI','Robots walk beside us now — and I build the AI they think with.'],
+    ['Phase 4 · The Cyborg Age','Human + machine, moving as one. Not replacement — evolution.']
+  ];
+  var lastPhase=-1;
+  function clamp01(v){ return Math.min(Math.max(v,0),1); }
+  function fade(v,a,b){ return clamp01((v-a)/(b-a)); }
+  function renderJourney(p){
+    var q=p*3;
+    walkers.setAttribute('transform','translate('+(26+p*400)+',0)');
+    for(var n=0;n<4;n++){
+      var o=Math.max(0,1-Math.abs(q-n));
+      scn[n].style.opacity=o;
+      bgd[n].style.opacity=(n===0)?1:o;
+    }
+    var arm=fade(p,.48,.68), plate=fade(p,.66,.84), core=fade(p,.76,.92);
+    cybArm.style.opacity=arm; normArmR.style.opacity=1-arm;
+    cybPlate.style.opacity=plate; cybCirc.style.opacity=Math.max(arm,plate)*.95; cybCore.style.opacity=core;
+    var idx=Math.round(q);
+    dots.forEach(function(d,n){ d.classList.toggle('on',n<=idx); });
+    if(idx!==lastPhase){ lastPhase=idx; phTitle.textContent=phases[idx][0]; phText.textContent=phases[idx][1]; }
+  }
+  function journeyScrollP(){
+    var r=jSec.getBoundingClientRect();
+    return clamp01((window.innerHeight*0.88-r.top)/(window.innerHeight*0.95));
+  }
+  var playing=false;
+  document.getElementById('playJourney').addEventListener('click',function(){
+    if(playing) return; playing=true;
+    var btn=this; btn.textContent='Walking…'; var t0=null;
+    function tick(ts){
+      if(!t0)t0=ts;
+      var t=Math.min((ts-t0)/6500,1);
+      renderJourney(t);
+      if(t<1){ requestAnimationFrame(tick); } else { playing=false; btn.textContent='▶ Play the journey'; }
+    }
+    if(reduce){ renderJourney(1); playing=false; btn.textContent='▶ Play the journey'; }
+    else { requestAnimationFrame(tick); }
+  });
+
+  /* unified scroll driver */
+  var ticking=false;
+  function onScroll(){
+    if(ticking) return; ticking=true;
+    requestAnimationFrame(function(){
+      renderEvo();
+      if(!playing) renderJourney(reduce?1:journeyScrollP());
+      ticking=false;
+    });
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  window.addEventListener('resize',onScroll);
+  if(lightMQ.addEventListener) lightMQ.addEventListener('change',renderEvo);
+  renderEvo();
+  renderJourney(reduce?1:journeyScrollP());
 })();
 </script>
 </body>
